@@ -19,4 +19,5 @@ app.use('/users', usersRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
+  console.log("🚀 Frontend React initialisé sur http://localhost:3000");
 });

@@ -1,13 +1,26 @@
 const db = require('../db');
 const bcrypt = require('bcrypt');
 
+function generateRandomUsername() {
+  const adjectives = ['Fast', 'Dark', 'Brave', 'Cool', 'Evil', 'Strong', 'Intelligent'];
+  const nouns = ['Knight', 'Wizard', 'Rogue', 'Priest', 'Tamer', 'Slave', 'God'];
+  const randomNumber = Math.floor(1000 + Math.random() * 9000);
+
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+
+  return `${adjective}${noun}${randomNumber}`;
+}
+
 const registerUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
+    const randomUsername = generateRandomUsername();
+    const bio = '';
     const newUser = await db.query(
-      'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *',
-      [email, hashedPassword]
+      'INSERT INTO users (email, password, username, bio) VALUES ($1, $2, $3, $4) RETURNING *',
+      [email, hashedPassword, randomUsername, bio]
     );
 
     delete newUser.password;

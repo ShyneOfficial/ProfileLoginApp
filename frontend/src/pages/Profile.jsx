@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [bio, setBio] = useState('');
@@ -9,17 +11,23 @@ export default function Profile() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    if (storedUser) {
-      setEmail(storedUser.email || '');
-      setUsername(storedUser.username || '');
-      setBio(storedUser.bio || '');
+    const storedUser = localStorage.getItem('user');
+    if (!storedUser) {
+      navigate('/login');
+    } else {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+      setEmail(parsedUser.email || '');
+      setUsername(parsedUser.username || '');
+      setBio(parsedUser.bio || '');
     }
   }, []);
 
   const handleSave = async (e) => {
     e.preventDefault();
+
     try {
-      const res = await fetch(`http://localhost:5000/users/${storedUser.id}`, {
+      const res = await fetch(`http://localhost:5000/users/${user.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, username, bio }),
@@ -39,6 +47,8 @@ export default function Profile() {
       setMessage('Erreur:\n', err);
     }
   };
+
+  if (!user) return null;
 
   return (
     <div className="min-h-screen w-full bg-gray-100 flex items-center justify-center flex-col gap-6">

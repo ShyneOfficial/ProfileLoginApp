@@ -20,7 +20,7 @@ export default function Register() {
     const data = await res.json();
 
     if (!res.ok) {
-      setError(data.message || 'Erreur lors de la connexion');
+      setError(data.message || 'Erreur lors de l\'inscription');
       return;
     }
 
