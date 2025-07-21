@@ -98,6 +98,16 @@ Si vous utilisez Docker, la base est automatiquement créée avec le fichier `db
 
 ---
 
+## 🔐 Configuration `.env`
+
+Dans le dossier `backend/`, créez un fichier `.env` avec le contenu suivant :
+
+```env
+DATABASE_URL=postgres://postgres:postgres@db:5432/profile_login_app
+```
+
+---
+
 ## 💼 Auteur
 
 **Iyad Hossen**\
