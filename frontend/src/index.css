@@ -1,3 +1,153 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+
+.navdiv {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7189b8;
+  gap: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #f3f4f6;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px 10px 10px 10px;
+  background-size: 50%;
+  width: 25%;
+  height: 5vh;
+  scale: 1.5;
+  z-index: 1;
+}
+
+.main-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  background-image: url("/blue_background.jpg");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height: 100vh;
+  gap: 20px;
+  z-index: 0;
+}
+
+.base-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/blue_background.jpg");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height: 100vh;
+  gap: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e2939;
+  background-color:#e2e2e2;
+  width:8%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.button:hover {
+  background-color: #b1b1b1;
+}
+
+.button:active {
+  background-color: #8f8f8f;
+  border-color: cadetblue;
+}
+
+.main-title {
+  display: block;
+  color: #f3f4f6;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.mini-title {
+  display: block;
+  color: #f3f4f6;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.error-text {
+  display: block;
+  color: #e7000b;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 10;
+}
+
+.validation-text {
+  display: block;
+  color: #7fff00;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 10;
+}
+
+.input {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 6px;
+  background-color: #dddddd;
+  border: solid 1px;
+  border-radius: 7px 7px 7px 7px;
+}
+
+.input:focus {
+  text-align: left;
+  border: solid 0px;
+}
+
+.input::placeholder {
+  color: #1e2939;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.text-area {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 6px;
+  background-color: #dddddd;
+  border: solid 1px;
+  border-radius: 7px 7px 7px 7px;
+  width: 20%;
+  min-height: 15vh;
+}
