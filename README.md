@@ -14,6 +14,10 @@ ProfileLoginApp est une application web simple qui permet aux utilisateurs de s'
 
 ## 📁 Pages de l'application
 
+### 🏠 /home
+
+Page d'acceuil. Sert de redirection vers les pages /register et /login
+
 ### 🔑 /register
 
 Page d'enregistrement avec formulaire (email + mot de passe). En cas de succès, redirige vers la page de connexion.

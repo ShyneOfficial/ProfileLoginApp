@@ -40,7 +40,6 @@ export default function Profile() {
         return;
       }
 
-      // Mise à jour dans le localStorage
       localStorage.setItem('user', JSON.stringify(data));
       setMessage('Profil mis à jour avec succès !');
     } catch (err) {
